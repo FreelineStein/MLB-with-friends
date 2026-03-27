@@ -7,9 +7,9 @@ export const participants: Participant[] = [
   { name: "Plum", teams: ["LAD", "DET", "TEX", "TB", "WSH"] },
   { name: "JP", teams: ["SEA", "BAL", "SD", "MIN", "MIA"] },
   { name: "Rose", teams: ["NYM", "ATL", "KC", "PIT", "STL"] },
-  { name: "Drew", teams: ["TOR", "BOS", "CLE", "CIN", "CWS"] },
+  { name: "Drew", teams: ["TOR", "BOS", "CLE", "CIN", "CHW"] },
   { name: "ZT", teams: ["NYY", "MIL", "ARI", "SF", "COL"] },
-  { name: "Steiner", teams: ["PHI", "CHC", "HOU", "OAK", "LAA"] },
+  { name: "Steiner", teams: ["PHI", "CHC", "HOU", "ATH", "LAA"] },
 ];
 
 // Validation
