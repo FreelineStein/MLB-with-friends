@@ -52,71 +52,73 @@ export default function AllTeamsTable({ teams }: AllTeamsTableProps) {
     <section>
       <h2 className="text-lg font-semibold text-gray-900 mb-3">All 30 Teams</h2>
       <div className="overflow-x-auto rounded-xl border border-gray-200">
-        <table className="w-full text-sm">
+        <table className="w-full text-sm table-fixed">
           <thead>
             <tr className="bg-gray-50 text-gray-500 text-left">
               <th
-                className="px-4 py-3 font-medium cursor-pointer select-none"
+                className="px-3 py-3 font-medium cursor-pointer select-none"
                 onClick={() => handleSort("team")}
               >
                 Team
                 <SortIcon col="team" />
               </th>
               <th
-                className="px-4 py-3 font-medium text-right cursor-pointer select-none"
+                className="px-2 py-3 font-medium text-right cursor-pointer select-none w-10"
                 onClick={() => handleSort("wins")}
               >
                 W
                 <SortIcon col="wins" />
               </th>
               <th
-                className="px-4 py-3 font-medium text-right cursor-pointer select-none"
+                className="px-2 py-3 font-medium text-right cursor-pointer select-none w-10"
                 onClick={() => handleSort("losses")}
               >
                 L
                 <SortIcon col="losses" />
               </th>
               <th
-                className="px-4 py-3 font-medium text-right cursor-pointer select-none"
+                className="px-2 py-3 font-medium text-right cursor-pointer select-none w-14 hidden sm:table-cell"
                 onClick={() => handleSort("winPct")}
               >
                 PCT
                 <SortIcon col="winPct" />
               </th>
-              <th className="px-4 py-3 font-medium">Owner</th>
+              <th className="px-2 py-3 font-medium w-20 sm:w-28">Owner</th>
             </tr>
           </thead>
           <tbody>
             {sorted.map((t) => (
               <tr key={t.abbreviation} className="border-t border-gray-100 hover:bg-gray-50">
-                <td className="px-4 py-2.5 flex items-center gap-2">
-                  {t.logoUrl && (
-                    <Image
-                      src={t.logoUrl}
-                      alt={t.displayName}
-                      width={24}
-                      height={24}
-                      className="flex-shrink-0"
-                      unoptimized
-                    />
-                  )}
-                  <span className="truncate">{t.displayName}</span>
+                <td className="px-3 py-2.5">
+                  <div className="flex items-center gap-2 min-w-0">
+                    {t.logoUrl && (
+                      <Image
+                        src={t.logoUrl}
+                        alt={t.displayName}
+                        width={24}
+                        height={24}
+                        className="flex-shrink-0"
+                        unoptimized
+                      />
+                    )}
+                    <span className="truncate">{t.displayName}</span>
+                  </div>
                 </td>
-                <td className="px-4 py-2.5 text-right font-medium">{t.wins}</td>
-                <td className="px-4 py-2.5 text-right text-gray-600">{t.losses}</td>
-                <td className="px-4 py-2.5 text-right text-gray-600">
+                <td className="px-2 py-2.5 text-right font-medium">{t.wins}</td>
+                <td className="px-2 py-2.5 text-right text-gray-600">{t.losses}</td>
+                <td className="px-2 py-2.5 text-right text-gray-600 hidden sm:table-cell">
                   {t.winPct.toFixed(3).replace(/^0/, "")}
                 </td>
-                <td className="px-4 py-2.5">
+                <td className="px-2 py-2.5">
                   <span
-                    className="inline-flex items-center gap-1.5 text-xs font-medium px-2 py-0.5 rounded-full"
+                    className="inline-flex items-center gap-1 text-xs font-medium px-1.5 py-0.5 rounded-full truncate"
                     style={{
                       backgroundColor: `${t.ownerColor}15`,
                       color: t.ownerColor,
                     }}
                   >
                     <span
-                      className="w-1.5 h-1.5 rounded-full"
+                      className="w-1.5 h-1.5 rounded-full flex-shrink-0"
                       style={{ backgroundColor: t.ownerColor }}
                     />
                     {t.owner}

@@ -33,34 +33,36 @@ export default function RosterCard({ participant }: RosterCardProps) {
         </div>
       </div>
 
-      <table className="w-full text-sm">
+      <table className="w-full text-sm table-fixed">
         <thead>
           <tr className="text-gray-500 text-left bg-gray-50">
-            <th className="px-4 py-2 font-medium">Team</th>
-            <th className="px-4 py-2 font-medium text-right">W</th>
-            <th className="px-4 py-2 font-medium text-right">L</th>
-            <th className="px-4 py-2 font-medium text-right">PCT</th>
+            <th className="px-3 py-2 font-medium">Team</th>
+            <th className="px-2 py-2 font-medium text-right w-10">W</th>
+            <th className="px-2 py-2 font-medium text-right w-10">L</th>
+            <th className="px-3 py-2 font-medium text-right w-14">PCT</th>
           </tr>
         </thead>
         <tbody>
           {p.teams.map((t) => (
             <tr key={t.abbreviation} className="border-t border-gray-100">
-              <td className="px-4 py-2 flex items-center gap-2">
-                {t.logoUrl && (
-                  <Image
-                    src={t.logoUrl}
-                    alt={t.displayName}
-                    width={24}
-                    height={24}
-                    className="flex-shrink-0"
-                    unoptimized
-                  />
-                )}
-                <span className="truncate">{t.displayName}</span>
+              <td className="px-3 py-2">
+                <div className="flex items-center gap-2 min-w-0">
+                  {t.logoUrl && (
+                    <Image
+                      src={t.logoUrl}
+                      alt={t.displayName}
+                      width={24}
+                      height={24}
+                      className="flex-shrink-0"
+                      unoptimized
+                    />
+                  )}
+                  <span className="truncate">{t.displayName}</span>
+                </div>
               </td>
-              <td className="px-4 py-2 text-right font-medium">{t.wins}</td>
-              <td className="px-4 py-2 text-right text-gray-600">{t.losses}</td>
-              <td className="px-4 py-2 text-right text-gray-600">
+              <td className="px-2 py-2 text-right font-medium">{t.wins}</td>
+              <td className="px-2 py-2 text-right text-gray-600">{t.losses}</td>
+              <td className="px-3 py-2 text-right text-gray-600">
                 {t.winPct.toFixed(3).replace(/^0/, "")}
               </td>
             </tr>
