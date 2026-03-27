@@ -33,13 +33,13 @@ export default function RosterCard({ participant }: RosterCardProps) {
         </div>
       </div>
 
-      <table className="w-full text-sm table-fixed">
+      <table className="w-full text-xs sm:text-sm table-fixed">
         <thead>
           <tr className="text-gray-500 text-left bg-gray-50">
             <th className="px-3 py-2 font-medium">Team</th>
-            <th className="px-2 py-2 font-medium text-right w-10">W</th>
-            <th className="px-2 py-2 font-medium text-right w-10">L</th>
-            <th className="px-3 py-2 font-medium text-right w-14">PCT</th>
+            <th className="px-2 py-2 font-medium text-right w-8">W</th>
+            <th className="px-2 py-2 font-medium text-right w-8">L</th>
+            <th className="px-2 py-2 font-medium text-right w-12">PCT</th>
           </tr>
         </thead>
         <tbody>
@@ -62,7 +62,7 @@ export default function RosterCard({ participant }: RosterCardProps) {
               </td>
               <td className="px-2 py-2 text-right font-medium">{t.wins}</td>
               <td className="px-2 py-2 text-right text-gray-600">{t.losses}</td>
-              <td className="px-3 py-2 text-right text-gray-600">
+              <td className="px-2 py-2 text-right text-gray-600 whitespace-nowrap">
                 {t.winPct.toFixed(3).replace(/^0/, "")}
               </td>
             </tr>
